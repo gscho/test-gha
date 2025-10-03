@@ -25,11 +25,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Use snapshot_basic
-        if: needs.snapshots.outputs.snapshot_basic != ''
-        run: echo "Using snapshot: ${{ needs.snapshots.outputs.snapshot_basic }}"
+        run: echo "Using snapshot: ${{ jobs.snapshots.outputs.snapshot_basic }}"
       - name: Use snapshot_pro
-        if: needs.snapshots.outputs.snapshot_pro != ''
-        run: echo "Using snapshot: ${{ needs.snapshots.outputs.snapshot_pro }}"
+        run: echo "Using snapshot: ${{ jobs.snapshots.outputs.snapshot_pro }}"
       - name: Use snapshot_max
-        if: needs.snapshots.outputs.snapshot_max != ''
-        run: echo "Using snapshot: ${{ needs.snapshots.outputs.snapshot_max }}"
+        run: echo "Using snapshot: ${{ jobs.snapshots.outputs.snapshot_max }}"
